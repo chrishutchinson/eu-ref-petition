@@ -1,0 +1,32 @@
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+main.body {
+  display: flex;
+  justify-content: space-around;
+}
+
+table.signatures {
+  width: 40%;
+  background: #eaeaea;
+}
+
+table.signatures thead {
+  font-weight: 700;
+  background: #3a3a3a;
+  color: #FFF;
+}
+
+table.signatures tbody tr:nth-child(2n) {
+  background: #FFF;
+}
+
+table.signatures td {
+  padding: 3px;
+}
+
+main.body {
+  max-width: 80%;
+  margin: 0 auto;
+}
