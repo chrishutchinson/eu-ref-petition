@@ -13,6 +13,12 @@
       $byConstituency: $('table.signatures.signatures--by-constituency'),
     },
 
+    totals: {
+      signatures: $('span.total--signatures')
+    },
+
+    total: null,
+
     loadData: function() {
       var self = this;
 
@@ -20,6 +26,9 @@
         url: 'https://petition.parliament.uk/petitions/131215.json',
         method: 'get',
         success: function(data) {
+          self.total = data.data.attributes.signature_count;
+          self.totals.signatures.html(self.total.toLocaleString('en-EN'));
+
           var countryVotes = data.data.attributes.signatures_by_country;
           var countrySorted = _.reverse(_.sortBy(countryVotes, ['signature_count']));
 
@@ -47,6 +56,7 @@
       $row.append(this.createCell(i+1));
       $row.append(this.createCell(record.name));
       $row.append(this.createCell(record.signature_count.toLocaleString('en-GB')));
+      $row.append(this.createCell((record.signature_count/this.total*100).toFixed(2)));
 
       return $row;
     },
@@ -60,6 +70,7 @@
       $row.append(this.createCell(i+1));
       $row.append(this.createCell(record.name));
       $row.append(this.createCell(record.signature_count.toLocaleString('en-EN')));
+      $row.append(this.createCell((record.signature_count/this.total*100).toFixed(2)));
 
       /*if(result.length > 0) {
         $row.append(this.createCell(result[0].leave));
