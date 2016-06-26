@@ -56,7 +56,7 @@
       $row.append(this.createCell(i+1));
       $row.append(this.createCell(record.name));
       $row.append(this.createCell(record.signature_count.toLocaleString('en-GB')));
-      $row.append(this.createCell((record.signature_count/this.total*100).toFixed(2)));
+      $row.append(this.createCell((record.signature_count/this.total*100).toFixed(3)));
 
       return $row;
     },
@@ -70,7 +70,7 @@
       $row.append(this.createCell(i+1));
       $row.append(this.createCell(record.name));
       $row.append(this.createCell(record.signature_count.toLocaleString('en-EN')));
-      $row.append(this.createCell((record.signature_count/this.total*100).toFixed(2)));
+      $row.append(this.createCell((record.signature_count/this.total*100).toFixed(3)));
 
       /*if(result.length > 0) {
         $row.append(this.createCell(result[0].leave));
